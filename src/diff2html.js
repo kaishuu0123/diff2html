@@ -49,6 +49,8 @@
     var diffOutput = '';
     if (cfg.outputFormat === 'side-by-side') {
       diffOutput = htmlPrinter.generateSideBySideJsonHtml(diffJson, cfg);
+    } else if (cfg.outputFormat === 'side-by-side-with-table') {
+      diffOutput = htmlPrinter.generateSideBySideWithTableJsonHtml(diffJson, cfg);
     } else {
       diffOutput = htmlPrinter.generateLineByLineJsonHtml(diffJson, cfg);
     }

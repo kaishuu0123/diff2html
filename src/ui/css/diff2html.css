@@ -99,6 +99,12 @@
   margin-bottom: -8px;
 }
 
+.d2h-file-side-diff-with-table {
+  display: inline-block;
+  margin-right: -4px;
+  margin-bottom: -8px;
+}
+
 .d2h-code-line {
   display: inline-block;
   white-space: nowrap;
