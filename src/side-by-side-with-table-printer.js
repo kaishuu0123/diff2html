@@ -72,7 +72,7 @@
     return hoganUtils.render(genericTemplatesPath, 'column-line-number-with-table', {
       diffParser: diffParser,
       blockHeader: utils.escape(blockHeader),
-      lineClass: 'd2h-code-side-linenumber',
+      lineClass: 'd2h-code-side-with-table-linenumber',
       contentClass: 'd2h-code-side-line'
     });
   };
@@ -83,10 +83,7 @@
     fileHtml.lines = [];
 
     file.blocks.forEach(function(block) {
-      fileHtml.lines.push({
-        left: that.makeSideHtml(block.header),
-        right: that.makeSideHtml('')
-      });
+      fileHtml.header = that.makeSideHtml(block.header);
 
       var oldLines = [];
       var newLines = [];
@@ -139,9 +136,11 @@
             var newSlice = newLines.slice(common);
 
             var tmpHtml = that.processLines(file.isCombined, oldSlice, newSlice);
-            fileHtml.lines.push({
-              left: tmpHtml.left,
-              right: tmpHtml.right
+            tmpHtml.lines.forEach(function(line) {
+              fileHtml.lines.push({
+                left: line.left,
+                right: line.right
+              });
             });
           }
         });
@@ -236,7 +235,7 @@
   SideBySideWithTablePrinter.prototype.generateSingleLineHtml = function(isCombined, type, number, content, possiblePrefix) {
     var lineWithoutPrefix = content;
     var prefix = possiblePrefix;
-    var lineClass = 'd2h-code-side-linenumber';
+    var lineClass = 'd2h-code-side-with-table-linenumber';
     var contentClass = 'd2h-code-side-line';
 
     if (!number && !content) {
