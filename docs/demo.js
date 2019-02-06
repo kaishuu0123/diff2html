@@ -710,7 +710,7 @@ $(document).ready(function() {
         var container = '#url-diff-container';
         var diff2htmlUi = new Diff2HtmlUI({diff: data});
 
-        if (outputFormat === 'side-by-side') {
+        if (outputFormat === 'side-by-side' || outputFormat === 'side-by-side-with-table') {
           $container.css({'width': '100%'});
         } else {
           $container.css({'width': ''});
