@@ -74,9 +74,20 @@
   font-size: 13px;
 }
 
+.d2h-diff-table-fixed {
+  table-layout: fixed;
+  width: 100%;
+}
+
 .d2h-diff-tbody > tr > td {
   height: 20px;
   line-height: 1;
+}
+
+.d2h-diff-tbody-with-table > tr > td {
+  height: 20px;
+  line-height: 20px;
+  vertical-align: top;
 }
 
 .d2h-files-diff {
@@ -95,6 +106,12 @@
   overflow-x: scroll;
   overflow-y: hidden;
   width: 50%;
+  margin-right: -4px;
+  margin-bottom: -8px;
+}
+
+.d2h-file-side-diff-with-table {
+  display: inline-block;
   margin-right: -4px;
   margin-bottom: -8px;
 }
@@ -146,6 +163,18 @@
   white-space: pre;
 }
 
+.d2h-code-line-ctn-with-table {
+  display: initial;
+  background: none;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.d2h-code-line-ctn-with-table:before {
+  content: attr(data-code-marker);
+}
+
 .line-num1 {
   box-sizing: border-box;
   float: left;
@@ -192,6 +221,21 @@
   text-overflow: ellipsis;
 }
 
+.d2h-code-side-with-table-linenumber {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 56px;
+  text-align: right;
+  border: solid #eeeeee;
+  border-width: 0 1px 0 1px;
+  cursor: pointer;
+  width: 56px;
+}
+
 .d2h-code-side-emptyplaceholder,
 .d2h-emptyplaceholder {
   background-color: #f1f1f1;
@@ -216,6 +260,11 @@
   background-color: #f8fafd;
   color: rgba(0, 0, 0, 0.3);
   border-color: #d5e4f2;
+}
+
+.d2h-info-word-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .d2h-file-diff .d2h-del.d2h-change {
